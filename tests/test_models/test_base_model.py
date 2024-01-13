@@ -60,9 +60,9 @@ class TestBaseModel(unittest.TestCase):
 
         attributes = storage.attributes()["BaseModel"]
         o = BaseModel()
-        for k, v in attributes.items():
-            self.assertTrue(hasattr(o, k))
-            self.assertEqual(type(getattr(o, k, None)), v)
+        for e, v in attributes.items():
+            self.assertTrue(hasattr(o, e))
+            self.assertEqual(type(getattr(o, e, None)), v)
 
     def test_3_datetime_created(self):
         """Tests if updated_at & created_at are all current at creation."""
