@@ -25,4 +25,3 @@ class test_fileStorage(unittest.TestCase):
 
     if __name__ == '__main__':
         unittest.main()
-

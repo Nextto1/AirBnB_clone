@@ -76,7 +76,7 @@ class TestBaseModel(unittest.TestCase):
     def test_3_id(self):
         """Tests used for unique user ids."""
 
-        l = [BaseModel().id for i in range(1000)]
+        unique_ids = [BaseModel().id for i in range(1000)]
         self.assertEqual(len(set(l)), len(l))
 
     def test_3_save(self):
