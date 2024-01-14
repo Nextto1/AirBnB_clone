@@ -74,13 +74,13 @@ class TestBaseModel(unittest.TestCase):
         self.assertTrue(abs(diff.total_seconds()) < 0.1)
 
     def test_3_id(self):
-        """Tests used for unique user ids."""
+        """Tests for unique user ids."""
 
         unique_ids = [BaseModel().id for i in range(1000)]
         self.assertEqual(len(set(l)), len(l))
 
     def test_3_save(self):
-        """Tests used for the public instance method save()."""
+        """Tests for the public instance method save()."""
 
         b = BaseModel()
         time.sleep(0.5)
@@ -90,7 +90,7 @@ class TestBaseModel(unittest.TestCase):
         self.assertTrue(abs(diff.total_seconds()) < 0.01)
 
     def test_3_str(self):
-        """Tests used for the __str__ method."""
+        """Tests for the __str__ method."""
         b = BaseModel()
         rex = re.compile(r"^\[(.*)\] \((.*)\) (.*)$")
         res = rex.match(str(b))
@@ -106,7 +106,7 @@ class TestBaseModel(unittest.TestCase):
         self.assertEqual(d, d2)
 
     def test_3_to_dict(self):
-        """Tests used the public instance method to_dict()."""
+        """Tests the public instance method to_dict()."""
 
         b = BaseModel()
         b.name = "Dorothy"
@@ -120,7 +120,7 @@ class TestBaseModel(unittest.TestCase):
         self.assertEqual(d["age"], b.age)
 
     def test_3_to_dict_no_args(self):
-        """Tests use to_dict() that has no arguments."""
+        """Tests to_dict() that has no arguments."""
         self.resetStorage()
         with self.assertRaises(TypeError) as e:
             BaseModel.to_dict()
@@ -128,7 +128,7 @@ class TestBaseModel(unittest.TestCase):
         self.assertEqual(str(e.exception), msg)
 
     def test_3_to_dict_excess_args(self):
-        """Tests use to_dict() that has too many arguments."""
+        """Tests to_dict() that has too many arguments."""
         self.resetStorage()
         with self.assertRaises(TypeError) as e:
             BaseModel.to_dict(self, 98)
@@ -173,7 +173,7 @@ class TestBaseModel(unittest.TestCase):
             self.assertEqual(json.load(f), d)
 
     def test_5_save_no_args(self):
-        """Tests that save() with no arguments."""
+        """Tests save() with no arguments."""
         self.resetStorage()
         with self.assertRaises(TypeError) as e:
             BaseModel.save()
